@@ -3,6 +3,10 @@ import './index.css'
 
 const url ='https://course-api.netlify.app/api/react-tours-project';
 
+const fetchTours = async () =>{
+    const response = fetch(url)
+    
+}
 const Tours = () =>{
     const [loading, setLoading] = useState(true)
     const [tours, setTours] = useState([])
