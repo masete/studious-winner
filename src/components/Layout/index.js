@@ -16,7 +16,7 @@ const Layout = () =>{
         try {
             const response = await fetch(url);
             const toursData = await response.json()
-            console.log(toursData)
+            
         } catch(error){
         setLoading(false);
         console.log(error);
@@ -37,7 +37,7 @@ const Layout = () =>{
     return (
         <>
             <main className='frist-div'>
-                <h1><Tours /></h1>
+                <h1><Tours tours={tours}/></h1>
             </main>
         </>
     )
