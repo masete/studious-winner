@@ -1,6 +1,6 @@
 import './index.css';
 import { useState, useEffect } from 'react';
-import Loading from './Loading'
+import Loading from '../Loading'
 import Tours from '../Tours';
 
 
@@ -12,19 +12,23 @@ const Layout = () =>{
     const [tours, setTours] = useState([])
 
     const fetchTours = async () =>{
-        // const response = fetch(url);
-        // const toursData
-        setLoading(true)
+        const response = await fetch(url);
+        const toursData = await response.json()
+        console.log(toursData)
     }
+
+    useEffect(()=>{
+        fetchTours();
+    })
 
     if(loading){
         return(
-        <>
+        
             <main>
                 <Loading />
             </main>
-        </>)
-    }
+        )
+    };
     return (
         <>
             <main className='frist-div'>
