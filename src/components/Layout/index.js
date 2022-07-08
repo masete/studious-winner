@@ -11,15 +11,20 @@ const Layout = () =>{
     const [loading, setLoading] = useState(true)
     const [tours, setTours] = useState([])
 
+ 
     const fetchTours = async () =>{
-        const response = await fetch(url);
-        const toursData = await response.json()
-        console.log(toursData)
-    }
+        try {
+            const response = await fetch(url);
+            const toursData = await response.json()
+            console.log(toursData)
+        } catch(error){
+        setLoading(false);
+        console.log(error);
+    };}
 
     useEffect(()=>{
         fetchTours();
-    })
+    }, [])
 
     if(loading){
         return(
